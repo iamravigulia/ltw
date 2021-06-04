@@ -239,7 +239,7 @@ class LtwController extends Controller
                             $fill_Q->sentence         = $insertData['sentence'];
                         }
                         if (!empty($insertData['sentence_audio']) && $insertData['sentence_audio'] != '') {
-                            $sentence_audio = $this->imagecsv($insertData['sentence_audio'], $images);
+                            $sentence_audio = $this->imagecsv($insertData['sentence_audio'], $audio);
                             $fill_Q->sentence_audio_media_id = $sentence_audio;
                         }
                         
