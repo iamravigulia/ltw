@@ -262,8 +262,8 @@ class LtwController extends Controller
                         if (!empty($insertData['r_word_2']) && $insertData['r_word_2'] != '') {
                             $fill_Q->r_word_2         = $insertData['r_word_2'];
                         }
-                        if (!empty($insertData['r_word_2']) && $insertData['r_word_2'] != '') {
-                            $fill_Q->r_word_2         = $insertData['r_word_2'];
+                        if (!empty($insertData['r_word_3']) && $insertData['r_word_3'] != '') {
+                            $fill_Q->r_word_3         = $insertData['r_word_3'];
                         }
 
                         $fill_Q->save();
