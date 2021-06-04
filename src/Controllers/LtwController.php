@@ -170,7 +170,6 @@ class LtwController extends Controller
                         "word_2"          => $importData[9],
                         "word_2_eng"      => $importData[10],
                         "word_2_eng_mean" => $importData[11],
-                        
 
                         "sentence"        => $importData[12],
                         "sentence_audio"  => $importData[13],
@@ -186,7 +185,7 @@ class LtwController extends Controller
                     );
                     // var_dump($insertData['answer1']);
                     /*  */
-                    if ($insertData['letter']) {
+                    if ($insertData['word']) {
                         $fill_Q                 = new LtwQues();
                         $fill_Q->format_title   = $request->format_title;
                         if(!empty($insertData['level'])){
@@ -198,23 +197,8 @@ class LtwController extends Controller
                                 $fill_Q->difficulty_level_id = 3;
                             }
                         }
-                        if (!empty($insertData['letter']) && $insertData['letter'] != '') {
-                            $fill_Q->letter             = $insertData['letter'];
-                        }
-                        if (!empty($insertData['letter_image']) && $insertData['letter_image'] != '') {
-                            $letter_image = $this->imagecsv($insertData['letter_image'], $images);
-                            $fill_Q->letter_image_media_id = $letter_image;
-                        }
-                        if (!empty($insertData['letter_audio']) && $insertData['letter_audio'] != '') {
-                            $letter_audio = $this->imagecsv($insertData['letter_audio'], $audio);
-                            $fill_Q->letter_audio_media_id = $letter_audio;
-                        }
-
-                        if (!empty($insertData['letter_trans']) && $insertData['letter_trans'] != '') {
-                            $fill_Q->letter_trans       = $insertData['letter_trans'];
-                        }
                         if (!empty($insertData['word']) && $insertData['word'] != '') {
-                            $fill_Q->word               = $insertData['word'];
+                            $fill_Q->word             = $insertData['word'];
                         }
                         if (!empty($insertData['word_image']) && $insertData['word_image'] != '') {
                             $word_image = $this->imagecsv($insertData['word_image'], $images);
@@ -226,15 +210,62 @@ class LtwController extends Controller
                         }
 
                         if (!empty($insertData['word_trans']) && $insertData['word_trans'] != '') {
-                            $fill_Q->word_trans         = $insertData['word_trans'];
+                            $fill_Q->word_trans       = $insertData['word_trans'];
+                        }
+                        if (!empty($insertData['word_meaning']) && $insertData['word_meaning'] != '') {
+                            $fill_Q->word_meaning               = $insertData['word_meaning'];
                         }
 
-                        if (!empty($insertData['meaning']) && $insertData['meaning'] != '') {
-                            $fill_Q->meaning            = $insertData['meaning'];
+                        if (!empty($insertData['word_1']) && $insertData['word_1'] != '') {
+                            $fill_Q->word_1         = $insertData['word_1'];
                         }
-                        if (!empty($insertData['info']) && $insertData['info'] != '') {
-                            $fill_Q->info               = $insertData['info'];
+                        if (!empty($insertData['word_1_eng']) && $insertData['word_1_eng'] != '') {
+                            $fill_Q->word_1_eng         = $insertData['word_1_eng'];
                         }
+                        if (!empty($insertData['word_1_eng_mean']) && $insertData['word_1_eng_mean'] != '') {
+                            $fill_Q->word_1_eng_mean         = $insertData['word_1_eng_mean'];
+                        }
+                        if (!empty($insertData['word_2']) && $insertData['word_2'] != '') {
+                            $fill_Q->word_2         = $insertData['word_2'];
+                        }
+                        if (!empty($insertData['word_2_eng']) && $insertData['word_2_eng'] != '') {
+                            $fill_Q->word_2_eng         = $insertData['word_2_eng'];
+                        }
+                        if (!empty($insertData['word_2_eng_mean']) && $insertData['word_2_eng_mean'] != '') {
+                            $fill_Q->word_2_eng_mean         = $insertData['word_2_eng_mean'];
+                        }
+
+                        if (!empty($insertData['sentence']) && $insertData['sentence'] != '') {
+                            $fill_Q->sentence         = $insertData['sentence'];
+                        }
+                        if (!empty($insertData['sentence_audio']) && $insertData['sentence_audio'] != '') {
+                            $sentence_audio = $this->imagecsv($insertData['sentence_audio'], $images);
+                            $fill_Q->sentence_audio_media_id = $sentence_audio;
+                        }
+                        
+                        if (!empty($insertData['gender_1']) && $insertData['gender_1'] != '') {
+                            $fill_Q->gender_1         = $insertData['gender_1'];
+                        }
+                        if (!empty($insertData['gender_2']) && $insertData['gender_2'] != '') {
+                            $fill_Q->gender_2         = $insertData['gender_2'];
+                        }
+                        if (!empty($insertData['gender_3']) && $insertData['gender_3'] != '') {
+                            $fill_Q->gender_3         = $insertData['gender_3'];
+                        }
+
+                        if (!empty($insertData['r_word_1']) && $insertData['r_word_1'] != '') {
+                            $fill_Q->r_word_1         = $insertData['r_word_1'];
+                        }
+                        if (!empty($insertData['r_word_1']) && $insertData['r_word_1'] != '') {
+                            $fill_Q->r_word_1         = $insertData['r_word_1'];
+                        }
+                        if (!empty($insertData['r_word_2']) && $insertData['r_word_2'] != '') {
+                            $fill_Q->r_word_2         = $insertData['r_word_2'];
+                        }
+                        if (!empty($insertData['r_word_2']) && $insertData['r_word_2'] != '') {
+                            $fill_Q->r_word_2         = $insertData['r_word_2'];
+                        }
+
                         $fill_Q->save();
                         
                         if($request->problem_set_id && $request->format_type_id){
